@@ -155,14 +155,21 @@
 
 
     document.getElementById("orderForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+  e.preventDefault();
 
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const plan = document.getElementById("plan").value;
-      const message = document.getElementById("message").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const plan = document.getElementById("plan").value;
+  const message = document.getElementById("message").value;
 
-      const text = `📩 New Order Request:%0A👤 Name: ${name}%0A📧 Email: ${email}%0A💰 Plan: ${plan}%0A📝 Message: ${message}`;
+  const text =
+    `📩 New Order Request:` +
+    `%0A👤 Name: ${name}` +
+    `%0A📧 Email: ${email}` +
+    `%0A📞 Phone: ${phone}` +
+    `%0A💰 Plan: ${plan}` +
+    `%0A📝 Message: ${message}`;
 
       fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`)
         .then(response => {
@@ -181,6 +188,7 @@
   </script>
 </body>
 </html>
+
 
 
 
