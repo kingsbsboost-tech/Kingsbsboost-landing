@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KingBoost - Social Media Boost</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -11,21 +12,54 @@
       padding: 0;
       background: #f4f7fc;
       color: #333;
+      scroll-behavior: smooth;
     }
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    nav .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #6a11cb;
+    }
+    nav .brand img {
+      height: 40px;
+    }
+    nav .links a {
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      transition: 0.3s;
+    }
+    nav .links a:hover {
+      color: #6a11cb;
+    }
+
     header {
       background: linear-gradient(135deg, #6a11cb, #2575fc);
-      padding: 20px;
+      padding: 60px 20px;
       text-align: center;
       color: white;
     }
     header img {
-      height: 50px;
-      vertical-align: middle;
+      height: 60px;
+      margin-bottom: 10px;
     }
     header h1 {
-      display: inline-block;
-      margin-left: 10px;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     h2 {
       text-align: center;
@@ -33,6 +67,7 @@
       margin: 40px 0 20px;
       color: #6a11cb;
     }
+
     /* Gallery */
     .gallery {
       padding: 50px 20px;
@@ -93,43 +128,7 @@
       background: linear-gradient(135deg, #2575fc, #6a11cb);
       transform: scale(1.05);
     }
-    /* Order Form */
-    .order-section {
-      max-width: 600px;
-      margin: 60px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    form label {
-      display: block;
-      margin: 15px 0 5px;
-      font-weight: 600;
-    }
-    form input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-    form button {
-      margin-top: 20px;
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    form button:hover {
-      background: linear-gradient(135deg, #2575fc, #6a11cb);
-    }
+
     /* Testimonials */
     .testimonials {
       background: #fff;
@@ -168,9 +167,57 @@
       font-size: 1.1rem;
       font-weight: 600;
     }
+    .testimonial .stars {
+      color: #ffcc00;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
     .testimonial p {
       font-size: 0.95rem;
       color: #555;
+    }
+
+    /* Order Form */
+    .order-section {
+      max-width: 600px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    form label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 600;
+    }
+    form input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    form button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    form button:hover {
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+    }
+    #status {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 600;
     }
   </style>
 
@@ -183,9 +230,23 @@
   </script>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">
+      <img src="mylogo.png" alt="KingBoost Logo">
+      KingBoost
+    </div>
+    <div class="links">
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#order">Order</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
   <header>
-    <img src="mylogo.png" alt="KingBoost Logo">
-    <h1>KingBoost</h1>
+    <h1>🚀 Boost Your Social Media with KingBoost</h1>
+    <p>Get real followers, likes, views & subscribers for Instagram, TikTok, YouTube, and more.</p>
   </header>
 
   <!-- Gallery -->
@@ -230,23 +291,26 @@
       <div class="testimonial">
         <img src="user1.jpg" alt="Client 1">
         <h4>Sarah L.</h4>
+        <div class="stars">★★★★★</div>
         <p>"Amazing service! My Instagram grew so fast, and all followers look real. Highly recommended!"</p>
       </div>
       <div class="testimonial">
         <img src="user2.jpg" alt="Client 2">
         <h4>Michael T.</h4>
+        <div class="stars">★★★★☆</div>
         <p>"KingBoost helped me grow my YouTube channel. Now I’m monetized, thank you guys!"</p>
       </div>
       <div class="testimonial">
         <img src="user3.jpg" alt="Client 3">
         <h4>Aisyah M.</h4>
+        <div class="stars">★★★★★</div>
         <p>"Fast delivery and professional support. My TikTok went viral after buying views."</p>
       </div>
     </div>
   </section>
 
   <!-- Order Form -->
-  <section class="order-section">
+  <section class="order-section" id="order">
     <h2>Place Your Order</h2>
     <form id="orderForm">
       <label for="service">Service</label>
@@ -265,6 +329,7 @@
       <input type="tel" id="phone" name="phone" required>
 
       <button type="submit">Submit Order</button>
+      <p id="status"></p>
     </form>
   </section>
 
@@ -289,7 +354,6 @@
 
       const now = new Date();
       const dateTime = now.toLocaleString("en-MY", { timeZone: "Asia/Kuala_Lumpur" });
-
       const orderId = "ORD-" + now.getFullYear().toString() +
                       (now.getMonth() + 1).toString().padStart(2, "0") +
                       now.getDate().toString().padStart(2, "0") + "-" +
@@ -307,7 +371,9 @@
 🕒 Order Time: ${dateTime}
 `;
 
-      // Send to Telegram
+      const statusEl = document.getElementById("status");
+      statusEl.innerText = "⏳ Sending order...";
+
       fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -318,8 +384,7 @@
         }),
       })
       .then(res => res.json())
-      .then(data => {
-        // Send confirmation email
+      .then(() => {
         emailjs.send("service_jad1wqy", "template_47t9g7d", {
           order_id: orderId,
           service: service,
@@ -329,15 +394,15 @@
           phone: phone,
           order_time: dateTime
         }).then(() => {
-          alert(`✅ Your order has been sent! A confirmation email has been sent to ${email}.`);
+          statusEl.innerText = `✅ Order sent! Confirmation email sent to ${email}`;
           document.getElementById("orderForm").reset();
         }).catch(err => {
-          alert("⚠️ Order sent but failed to send confirmation email.");
+          statusEl.innerText = "⚠️ Order sent but failed to send confirmation email.";
           console.error(err);
         });
       })
       .catch(err => {
-        alert("❌ Failed to send order. Please try again.");
+        statusEl.innerText = "❌ Failed to send order. Please try again.";
         console.error(err);
       });
     });
