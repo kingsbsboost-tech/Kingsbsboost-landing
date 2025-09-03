@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Media Boost Service</title>
+  <title>KingBoost | Social Media Boost Service</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -14,14 +14,51 @@
       color: #333;
       line-height: 1.6;
     }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .navbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #6a11cb;
+    }
+    .navbar .brand img {
+      height: 40px;
+      border-radius: 8px;
+    }
+    .navbar .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      transition: 0.3s;
+    }
+    .navbar .nav-links a:hover { color: #6a11cb; }
+
     header {
       background: linear-gradient(135deg, #6a11cb, #2575fc);
       color: white;
       text-align: center;
-      padding: 100px 20px 60px;
+      padding: 150px 20px 80px;
       border-bottom-left-radius: 50px;
       border-bottom-right-radius: 50px;
-      position: relative;
+      margin-top: 60px;
     }
     header h1 {
       font-size: 3rem;
@@ -57,7 +94,6 @@
       cursor: pointer;
     }
     .social-icons i:hover { transform: scale(1.2); }
-
     .fa-instagram { color: #e4405f; }
     .fa-tiktok { color: #000; }
     .fa-youtube { color: #ff0000; }
@@ -90,6 +126,46 @@
       font-weight: bold;
       color: #6a11cb;
       margin: 15px 0 25px;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: #f9f9ff;
+      padding: 80px 20px;
+      border-radius: 50px;
+      margin: 60px auto;
+      max-width: 1200px;
+    }
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      font-weight: 700;
+      color: #6a11cb;
+    }
+    .testimonial-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .testimonial {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+    .testimonial:hover { transform: translateY(-8px); }
+    .testimonial p {
+      font-style: italic;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #444;
+    }
+    .testimonial h4 {
+      text-align: right;
+      font-weight: 600;
+      color: #6a11cb;
     }
 
     /* Contact Form */
@@ -142,14 +218,26 @@
 </head>
 <body>
 
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="brand">
+      <img src="logo.png" alt="Brand Logo">
+      <span>KingBoost</span>
+    </div>
+    <div class="nav-links">
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Order</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
   <header>
     <h1>Boost Your Social Media 🚀</h1>
     <p>Get real followers, likes, and engagement for Instagram, TikTok, YouTube, and more.</p>
     <div class="cta">
       <a href="#contact">Order Now</a>
     </div>
-
-    <!-- Social Media Icons -->
     <div class="social-icons">
       <i class="fab fa-instagram"></i>
       <i class="fab fa-tiktok"></i>
@@ -159,8 +247,8 @@
     </div>
   </header>
 
-  <!-- Pricing Plans -->
-  <section class="pricing">
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
     <h2>Our Pricing Plans</h2>
     <div class="plans">
       <div class="plan">
@@ -181,7 +269,26 @@
     </div>
   </section>
 
-  <!-- Contact Form -->
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-container">
+      <div class="testimonial">
+        <p>"KingBoost helped me grow my Instagram to 10k followers in just 2 weeks! Highly recommended."</p>
+        <h4>- Sarah J.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Very professional and fast delivery. My TikTok videos get so much more engagement now."</p>
+        <h4>- Adam S.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"I ordered the Premium plan and got exactly what I wanted. Amazing customer support too!"</p>
+        <h4>- Lina K.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
   <section class="contact" id="contact">
     <h2>Place Your Order</h2>
     <form id="orderForm">
@@ -201,11 +308,11 @@
   </section>
 
   <footer>
-    <p>© 2025 Social Boost Service | Contact us on <a href="https://t.me/kingsbsboost">Telegram</a></p>
+    <p>© 2025 KingBoost | Contact us on <a href="https://t.me/kingsbsboost">Telegram</a></p>
   </footer>
 
   <script>
-    // Replace with your new Bot Token & Chat ID
+    // Replace with your Bot Token & Chat ID
     const BOT_TOKEN = "8323809916:AAGqFUk7o1CN4XM7gylNUv6wstdZpV00MhM";
     const CHAT_ID = "5233559861"; // your Telegram chat ID
 
@@ -243,6 +350,3 @@
   </script>
 </body>
 </html>
-
-
-
