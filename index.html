@@ -271,6 +271,76 @@
       color: #2575fc;
       text-decoration: none;
     }
+    /* ✅ Mobile Responsive */
+     @media (max-width: 768px) {
+    /* Hero Section */
+    .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+   }
+
+   .hero h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+   }
+ 
+   .hero p {
+    font-size: 16px;
+   }
+
+   .hero-socials {
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+   }
+
+   .hero-socials .social-icon {
+    margin: 6px;
+    width: 45px;
+    height: 45px;
+   }
+
+   /* Tabs / Services */
+   .tabs {
+    flex-direction: column;
+    align-items: stretch;
+   }
+
+   .tab-btn {
+    width: 100%;
+    margin-bottom: 10px;
+   }
+
+   .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+   }
+ }
+
+  @media (max-width: 480px) {
+   .gallery {
+    grid-template-columns: 1fr;
+   }
+
+   .hero h1 {
+    font-size: 24px;
+   }
+
+   .hero-socials .social-icon {
+    width: 40px;
+    height: 40px;
+   }
+
+   .tab-btn {
+    font-size: 14px;
+    padding: 10px;
+   }
+
+   .gallery-item {
+    padding: 12px;
+   }
+ }
   </style>
 </head>
 <body>
@@ -431,7 +501,6 @@
   </svg>
 </a>
 
-
   <!-- Footer -->
   <footer id="contact">
     <p>📩 Contact us on <a href="https://t.me/kingsbsboost" target="_blank">Telegram</a></p>
@@ -500,6 +569,7 @@
   </script>
 </body>
 </html>
+
 
 
 
