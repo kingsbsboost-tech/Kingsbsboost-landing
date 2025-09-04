@@ -379,6 +379,80 @@
   }
 }
 
+/* Giveaway Modal */
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 2000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.6); 
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  margin: 10% auto; 
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.modal-content ul li {
+  font-size: 1.05rem;
+  margin: 8px 0;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 14px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: white;
+  color: #ff4b2b;
+  transition: 0.3s;
+}
+
+.modal-content button:hover {
+  transform: scale(1.05);
+  background: #f9f9f9;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
   </style>
 </head>
 <body>
@@ -438,189 +512,312 @@
       <button class="tab-btn" onclick="showCategory('facebook')">Facebook</button>
     </div>
 
-    <!-- Instagram -->
-    <div id="instagram" class="gallery-container category">
-      <div class="card">
-        <h3>Instagram Followers</h3>
-        <table>
-          <tr onclick="fillOrder('Instagram 1,000 Followers','$10')"><td>1,000 Followers</td><td>$10</td></tr>
-          <tr onclick="fillOrder('Instagram 5,000 Followers','$40')"><td>5,000 Followers</td><td>$40</td></tr>
-          <tr onclick="fillOrder('Instagram 10,000 Followers','$75')"><td>10,000 Followers</td><td>$75</td></tr>
-        </table>
-      </div>
-    </div>
+   <!-- Instagram -->
+<div id="instagram" class="gallery-container category">
+  
+  <!-- Followers Card -->
+  <div class="card">
+    <h3>Instagram Followers</h3>
+    <table>
+      <tr onclick="fillOrder('Instagram 1,000 Followers','RM 35')">
+        <td>1,000 Followers</td>
+        <td>RM 35</td>
+      </tr>
+      <tr onclick="fillOrder('Instagram 10,000 Followers','RM 320')">
+        <td>10,000 Followers</td>
+        <td>RM 320</td>
+      </tr>
+      <tr onclick="fillOrder('Instagram 100,000 Followers','RM 3000')">
+        <td>100,000 Followers</td>
+        <td>RM 3000</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Views Card -->
+  <div class="card">
+    <h3>Instagram Views</h3>
+    <table>
+      <tr onclick="fillOrder('Instagram 1,000 Views','RM 1')">
+        <td>1,000 Views</td>
+        <td>RM 1</td>
+      </tr>
+      <tr onclick="fillOrder('Instagram 10,000 Views','RM 9')">
+        <td>10,000 Views</td>
+        <td>RM 9</td>
+      </tr>
+      <tr onclick="fillOrder('Instagram 100,000 Views','RM 80')">
+        <td>100,000 Views</td>
+        <td>RM 80</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Likes Card -->
+  <div class="card">
+    <h3>Instagram Likes</h3>
+    <table>
+      <tr onclick="fillOrder('Instagram 1,000 Likes','RM 20')">
+        <td>1,000 Likes</td>
+        <td>RM 20</td>
+      </tr>
+      <tr onclick="fillOrder('Instagram 10,000 Likes','RM 180')">
+        <td>10,000 Likes</td>
+        <td>RM 180</td>
+      </tr>
+      <tr onclick="fillOrder('Instagram 100,000 Likes','RM 1700')">
+        <td>100,000 Likes</td>
+        <td>RM 1700</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
 
     <!-- TikTok -->
-    <div id="tiktok" class="gallery-container category" style="display:none;">
-      <div class="card">
-        <h3>TikTok Views</h3>
-        <table>
-          <tr onclick="fillOrder('TikTok 5,000 Views','$8')"><td>5,000 Views</td><td>$8</td></tr>
-          <tr onclick="fillOrder('TikTok 20,000 Views','$25')"><td>20,000 Views</td><td>$25</td></tr>
-          <tr onclick="fillOrder('TikTok 50,000 Views','$50')"><td>50,000 Views</td><td>$50</td></tr>
-        </table>
-      </div>
-    </div>
+<div id="tiktok" class="gallery-container category" style="display:none;">
+  
+  <!-- Views Card -->
+  <div class="card">
+    <h3>TikTok Views</h3>
+    <table>
+      <tr onclick="fillOrder('TikTok 1,000 Views','RM 1')">
+        <td>1,000 Views</td>
+        <td>RM 1</td>
+      </tr>
+      <tr onclick="fillOrder('TikTok 10,000 Views','RM 9')">
+        <td>10,000 Views</td>
+        <td>RM 9</td>
+      </tr>
+      <tr onclick="fillOrder('TikTok 100,000 Views','RM 80')">
+        <td>100,000 Views</td>
+        <td>RM 80</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Likes Card -->
+  <div class="card">
+    <h3>TikTok Likes</h3>
+    <table>
+      <tr onclick="fillOrder('TikTok 1,000 Likes','RM 20')">
+        <td>1,000 Likes</td>
+        <td>RM 20</td>
+      </tr>
+      <tr onclick="fillOrder('TikTok 10,000 Likes','RM 180')">
+        <td>10,000 Likes</td>
+        <td>RM 180</td>
+      </tr>
+      <tr onclick="fillOrder('TikTok 100,000 Likes','RM 1700')">
+        <td>100,000 Likes</td>
+        <td>RM 1700</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
 
     <!-- YouTube -->
     <div id="youtube" class="gallery-container category" style="display:none;">
       <div class="card">
         <h3>YouTube Subscribers</h3>
         <table>
-          <tr onclick="fillOrder('YouTube 1,000 Subs','$49')"><td>1,000 Subscribers</td><td>$49</td></tr>
-          <tr onclick="fillOrder('YouTube 5,000 Subs','$200')"><td>5,000 Subscribers</td><td>$200</td></tr>
-          <tr onclick="fillOrder('YouTube 10,000 Subs','$380')"><td>10,000 Subscribers</td><td>$380</td></tr>
+          <tr onclick="fillOrder('YouTube 1,000 Subs','RM 150')"><td>1,000 Subscribers</td><td>RM 150</td></tr>
+          <tr onclick="fillOrder('YouTube 5,000 Subs','RM 725')"><td>5,000 Subscribers</td><td>RM 725</td></tr>
+          <tr onclick="fillOrder('YouTube 10,000 Subs','RM 1400')"><td>10,000 Subscribers</td><td>RM 1400</td></tr>
         </table>
       </div>
     </div>
 
-    <!-- Facebook -->
-    <div id="facebook" class="gallery-container category" style="display:none;">
-      <div class="card">
-        <h3>Facebook Likes</h3>
-        <table>
-          <tr onclick="fillOrder('Facebook 1,000 Likes','$15')"><td>1,000 Likes</td><td>$15</td></tr>
-          <tr onclick="fillOrder('Facebook 5,000 Likes','$70')"><td>5,000 Likes</td><td>$70</td></tr>
-          <tr onclick="fillOrder('Facebook 10,000 Likes','$130')"><td>10,000 Likes</td><td>$130</td></tr>
-        </table>
-      </div>
-    </div>
-  </section>
+<!-- Facebook -->
+<div id="facebook" class="gallery-container category" style="display:none;">
+  
+  <!-- Likes Card -->
+  <div class="card">
+    <h3>Facebook Likes</h3>
+    <table>
+      <tr onclick="fillOrder('Facebook 1,000 Likes','RM 20')">
+        <td>1,000 Likes</td>
+        <td>RM 20</td>
+      </tr>
+      <tr onclick="fillOrder('Facebook 10,000 Likes','RM 180')">
+        <td>10,000 Likes</td>
+        <td>RM 180</td>
+      </tr>
+      <tr onclick="fillOrder('Facebook 100,000 Likes','RM 1700')">
+        <td>100,000 Likes</td>
+        <td>RM 1700</td>
+      </tr>
+    </table>
+  </div>
+  
+  <!-- Views Card -->
+  <div class="card">
+    <h3>Facebook Views</h3>
+    <table>
+      <tr onclick="fillOrder('Facebook 1,000 Views','RM 5')">
+        <td>1,000 Views</td>
+        <td>RM 5</td>
+      </tr>
+      <tr onclick="fillOrder('Facebook 10,000 Views','RM 40')">
+        <td>10,000 Views</td>
+        <td>RM 40</td>
+      </tr>
+      <tr onclick="fillOrder('Facebook 100,000 Views','RM 300')">
+        <td>100,000 Views</td>
+        <td>RM 300</td>
+      </tr>
+    </table>
+  </div>
+  
+  <!-- Followers Card -->
+  <div class="card">
+    <h3>Facebook Followers</h3>
+    <table>
+      <tr onclick="fillOrder('Facebook 1,000 Followers','RM 35')">
+        <td>1,000 Followers</td>
+        <td>RM 35</td>
+      </tr>
+      <tr onclick="fillOrder('Facebook 10,000 Followers','RM 320')">
+        <td>10,000 Followers</td>
+        <td>RM 320</td>
+      </tr>
+      <tr onclick="fillOrder('Facebook 100,000 Followers','RM 3000')">
+        <td>100,000 Followers</td>
+        <td>RM 3000</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+</section>
 
   <!-- Testimonials -->
-  <section class="testimonials" id="testimonials">
-    <h2 style="text-align:center;">What Our Clients Say</h2>
+  <section id="testimonials" class="testimonials">
+    <h2 style="text-align:center;margin-bottom:40px;">Happy Clients</h2>
     <div class="testimonials-container">
       <div class="testimonial">
-        <img src="user1.jpg" alt="Client 1">
-        <h4>Sarah L.</h4>
-        <p>"Amazing service! My Instagram grew so fast, and all followers look real. Highly recommended!"</p>
+        <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Client 1">
+        <p>"Got 5k Instagram followers in 24h! Amazing service!"</p>
       </div>
       <div class="testimonial">
-        <img src="user2.jpg" alt="Client 2">
-        <h4>Michael T.</h4>
-        <p>"KingBoost helped me grow my YouTube channel. Now I’m monetized, thank you guys!"</p>
+        <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Client 2">
+        <p>"TikTok views increased rapidly. Highly recommend!"</p>
       </div>
       <div class="testimonial">
-        <img src="user3.jpg" alt="Client 3">
-        <h4>Aisyah M.</h4>
-        <p>"Fast delivery and professional support. My TikTok went viral after buying views."</p>
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 3">
+        <p>"YouTube subscribers delivered as promised. Fantastic!"</p>
       </div>
     </div>
   </section>
 
   <!-- Order Form -->
-  <section class="order-section" id="order">
+  <section id="order" class="order-section">
     <h2>Place Your Order</h2>
     <form id="orderForm">
       <label for="service">Service</label>
-      <input type="text" id="service" name="service" required readonly>
+      <input type="text" id="service" name="service" placeholder="Choose a service">
 
       <label for="price">Price</label>
-      <input type="text" id="price" name="price" required readonly>
+      <input type="text" id="price" name="price" placeholder="Price">
 
-      <label for="username">Your Username / Link</label>
-      <input type="text" id="username" name="username" required>
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name">
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email">
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required>
+      <label for="telegram">Telegram</label>
+      <input type="text" id="telegram" name="telegram" placeholder="Telegram Username">
 
       <button type="submit">Submit Order</button>
     </form>
   </section>
 
- <!-- Floating Telegram Button -->
-<a href="https://t.me/kingofboost" target="_blank" class="telegram-float">
-  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 240 240" fill="white">
-    <path d="M120,0C53.7,0,0,53.7,0,120c0,66.3,53.7,120,120,120c66.3,0,120-53.7,120-120
-    C240,53.7,186.3,0,120,0z M178.7,77.6c-1.5,16.1-8,55-11.3,72.9c-1.4,7.6-4.5,10.2-7.5,10.5c-6.4,0.6-11.3-4.2-17.6-8.3
-    c-9.8-6.5-15.3-10.6-24.9-17c-11-7.2-3.9-11.2,2.4-17.7c1.6-1.6,28.8-26.4,29.3-28.6c0.1-0.4,0.1-2-0.8-2.8c-0.9-0.8-2.2-0.5-3.2-0.3
-    c-1.4,0.3-23.2,14.8-65.6,43.7c-6.2,4.3-11.8,6.4-16.8,6.3c-5.5-0.1-16-3.1-23.8-5.7c-9.6-3.1-17.3-4.7-16.7-9.9
-    c0.3-2.9,4.4-5.9,12.1-9.1c47.5-20.7,79.1-34.4,95-41.1c45.2-18.9,54.6-22.2,60.7-22.3c1.3,0,4.1,0.3,6,1.8c1.5,1.2,2,2.8,2.1,4
-    C179.1,74.2,178.8,76.5,178.7,77.6z"/>
-  </svg>
-</a>
+  <!-- Floating Telegram Button -->
+  <a href="https://t.me/YourTelegram" target="_blank" class="telegram-float">✈</a>
 
   <!-- Footer -->
-  <footer id="contact">
-    <p>📩 Contact us on <a href="https://t.me/kingsbsboost" target="_blank">Telegram</a></p>
-    <p>&copy; 2025 KingBoost. All rights reserved.</p>
+  <footer>
+    <p>© 2025 KingBoost | <a href="#contact">Contact Us</a></p>
   </footer>
 
-  <script>
-    function showCategory(category) {
-      document.querySelectorAll(".category").forEach(cat => cat.style.display = "none");
-      document.getElementById(category).style.display = "grid";
-      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
-    }
+  <!-- ✅ Giveaway Popup Modal -->
+<div id="giveawayModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>🎉 Special Giveaway Alert!</h2>
+    <p>We’re giving away <strong>FREE Social Media Boosts</strong> to 100 earlierst customers! 🚀</p>
+    <ul>
+      <li>✨ 1,000 TikTok Views</li>
+    </ul>
+    <p>👉 Hurry! only for 100 people,submit order now.</p>
+    <button onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'}); closeModal();">
+      Join Giveaway Now
+    </button>
+  </div>
+</div>
 
-    function fillOrder(service, price) {
-      document.getElementById("service").value = service;
-      document.getElementById("price").value = price;
-      document.getElementById("order").scrollIntoView({ behavior: "smooth" });
-    }
+<script>
+  // Tabs
+  function showCategory(category) {
+    document.querySelectorAll('.category').forEach(cat => cat.style.display='none');
+    document.getElementById(category).style.display='grid';
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelector('.tab-btn[onclick="showCategory(\''+category+'\')"]').classList.add('active');
+  }
 
-    // Telegram Bot
-    const BOT_TOKEN = "8323809916:AAGqFUk7o1CN4XM7gylNUv6wstdZpV00MhM";
-    const CHAT_ID = "5233559861";
+  function fillOrder(service, price) {
+    document.getElementById('service').value = service;
+    document.getElementById('price').value = price;
+    document.getElementById('order').scrollIntoView({behavior:'smooth'});
+  }
 
-    document.getElementById("orderForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const service = document.getElementById("service").value;
-      const price = document.getElementById("price").value;
-      const username = document.getElementById("username").value;
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
+  function goToCategory(category) {
+    showCategory(category);
+    document.getElementById('services').scrollIntoView({behavior:'smooth'});
+  }
 
-      const now = new Date();
-      const dateTime = now.toLocaleString("en-MY", { timeZone: "Asia/Kuala_Lumpur" });
-      const orderId = "ORD-" + now.getFullYear() + (now.getMonth()+1) + now.getDate() + "-" + Math.floor(1000 + Math.random() * 9000);
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
 
-      const message = `
-📦 *New Order Received!*
-─────────────────────
-🆔 Order ID: ${orderId}
-🔹 Service: ${service}
-💲 Price: ${price}
-👤 Username/Link: ${username}
-📧 Email: ${email}
-📞 Phone: ${phone}
-🕒 Order Time: ${dateTime}
-`;
-
-      fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: "Markdown" }),
-      }).then(res => res.json())
-      .then(() => {
-        alert("✅ Your order has been sent! We will contact you soon.");
-        document.getElementById("orderForm").reset();
-      }).catch(err => {
-        alert("❌ Failed to send order. Please try again.");
-        console.error(err);
-      });
-    });
-    function goToCategory(category) {
-  showCategory(category); 
-  document.getElementById("services").scrollIntoView({ behavior: "smooth" });
-}
-  </script>
-  <script>
-  const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    menuToggle.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
   });
+
+  // Giveaway Modal Script
+  const modal = document.getElementById("giveawayModal");
+  const closeBtn = document.querySelector(".close-btn");
+
+  // Show modal 1 second after page loads
+  window.onload = function() {
+    setTimeout(() => {
+      modal.style.display = "block";
+    }, 1000);
+  };
+
+  // Close modal function
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  // Close when clicking close button
+  closeBtn.onclick = closeModal;
+
+  // Close when clicking outside modal
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  };
 </script>
 </body>
 </html>
+
+
 
 
 
