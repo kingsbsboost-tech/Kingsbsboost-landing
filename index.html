@@ -44,8 +44,31 @@
     form label {display:block; margin:15px 0 5px; font-weight:600;}
     form input {width:100%; padding:12px; border-radius:10px; border:1px solid #ccc; font-size:1rem;}
     form button {margin-top:20px; width:100%; padding:14px; background:linear-gradient(135deg, #6a11cb, #2575fc); color:white; border:none; border-radius:30px; font-size:1.1rem; font-weight:600; cursor:pointer;}
-    .telegram-float {position:fixed; width:55px; height:55px; bottom:20px; right:20px; background:#0088cc; color:#fff; border-radius:50%; text-align:center; font-size:28px; box-shadow:0 6px 10px rgba(0,0,0,0.2); z-index:1000; display:flex; align-items:center; justify-content:center; transition:0.3s;}
-    .telegram-float:hover {transform:scale(1.1); background:#0077b5;}
+    /* Updated Telegram Floating Button */
+    .telegram-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background: #0088cc;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 28px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .telegram-float:hover {
+      transform: scale(1.2) rotate(5deg);
+      background: #0077b5;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
     footer {text-align:center; padding:20px; background:#222; color:#fff; margin-top:40px;}
     footer a {color:#2575fc; text-decoration:none;}
     @media(max-width:768px){.hero{padding:40px 20px}.hero h1{font-size:28px}.hero p{font-size:16px}.hero-socials{flex-wrap:wrap}.hero-socials .social-icon{width:45px;height:45px;margin:6px}.tabs{flex-direction:column;align-items:stretch}.gallery-container{grid-template-columns:repeat(2,1fr);gap:15px}.menu-toggle{display:block}nav ul{display:none;flex-direction:column;width:100%;background:rgba(0,0,0,0.8);margin-top:10px;padding:10px 0;border-radius:10px}nav ul.active{display:flex}nav ul li{text-align:center;margin:10px 0}}
@@ -263,8 +286,6 @@
 
     // Modal
     function closeModal(){document.getElementById('promoModal').style.display='none';}
-    // Example to open modal after 2 sec
-    // setTimeout(()=>{document.getElementById('promoModal').style.display='block'},2000);
 
     // Telegram Bot Submission
     const BOT_TOKEN = "8323809916:AAGqFUk7o1CN4XM7gylNUv6wstdZpV00MhM";
@@ -306,4 +327,3 @@
   </script>
 </body>
 </html>
-
