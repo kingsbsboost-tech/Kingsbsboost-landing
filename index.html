@@ -33,51 +33,6 @@
       margin: 40px 0 20px;
       color: #6a11cb;
     }
-    /* Carousel */
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      max-width: 1000px;
-      margin: 40px auto;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .carousel-item {
-      min-width: 100%;
-      background: white;
-      text-align: center;
-      padding: 30px;
-      cursor: pointer;
-    }
-    .carousel-item img {
-      max-width: 120px;
-      margin-bottom: 15px;
-    }
-    .carousel-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
-    .carousel-buttons button {
-      background: rgba(0,0,0,0.5);
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      padding: 8px 15px;
-      border-radius: 50%;
-      transition: 0.3s;
-    }
-    .carousel-buttons button:hover {
-      background: rgba(0,0,0,0.8);
-    }
     /* Tabs */
     .tabs {
       display: flex;
@@ -227,45 +182,39 @@
     form button:hover {
       background: linear-gradient(135deg, #2575fc, #6a11cb);
     }
+    /* Floating Telegram Button */
+    .telegram-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background: #0088cc;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      z-index: 999;
+    }
+    .telegram-float img {
+      width: 35px;
+      height: 35px;
+    }
+    .telegram-float:hover {
+      transform: scale(1.1);
+      background: #006f9b;
+    }
   </style>
-
-  <!-- EmailJS -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  emailjs.init("public_Z-3dXpQhEBnrfGJBA"); // get it from EmailJS dashboard
-</script>
-
 </head>
 <body>
   <header>
     <img src="mylogo.png" alt="KingBoost Logo">
     <h1>KingBoost</h1>
   </header>
-
-  <!-- Carousel -->
-  <section class="carousel">
-    <div class="carousel-track">
-      <div class="carousel-item" onclick="selectProduct('Instagram Followers', '$19 / 1k')">
-        <img src="instagram-followers.png" alt="Instagram Followers">
-        <h3>🔥 Best Seller: Instagram Followers</h3>
-        <p>Get 1,000 real followers for just $19</p>
-      </div>
-      <div class="carousel-item" onclick="selectProduct('YouTube Subscribers', '$49 / 1k')">
-        <img src="youtube-subs.png" alt="YouTube Subscribers">
-        <h3>🚀 YouTube Growth Package</h3>
-        <p>Monetize faster with 1k+ subscribers</p>
-      </div>
-      <div class="carousel-item" onclick="selectProduct('TikTok Views', '$25 / 5k')">
-        <img src="tiktok-views.png" alt="TikTok Views">
-        <h3>🎵 Viral TikTok Views</h3>
-        <p>Boost visibility with 5,000+ views</p>
-      </div>
-    </div>
-    <div class="carousel-buttons">
-      <button onclick="moveSlide(-1)">&#10094;</button>
-      <button onclick="moveSlide(1)">&#10095;</button>
-    </div>
-  </section>
 
   <!-- Tabs -->
   <h2>Our Services</h2>
@@ -368,6 +317,11 @@
     </form>
   </section>
 
+  <!-- Floating Telegram Button -->
+  <a href="https://t.me/Kingofboost" target="_blank" class="telegram-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Chat">
+  </a>
+
   <script>
     // Tab Switching
     function openTab(tabName) {
@@ -377,15 +331,6 @@
       event.currentTarget.classList.add("active");
     }
 
-    // Carousel
-    let currentSlide = 0;
-    function moveSlide(direction) {
-      const track = document.querySelector(".carousel-track");
-      const items = document.querySelectorAll(".carousel-item");
-      currentSlide = (currentSlide + direction + items.length) % items.length;
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-
     // Product Selection
     function selectProduct(productName, productPrice) {
       document.getElementById("orderForm").scrollIntoView({ behavior: "smooth" });
@@ -393,9 +338,9 @@
       document.getElementById("price").value = productPrice;
     }
 
-    // Telegram + EmailJS
-    const BOT_TOKEN = "8323809916:AAGqFUk7o1CN4XM7gylNUv6wstdZpV00MhM";   // Replace with your Telegram Bot Token
-    const CHAT_ID = "5233559861";       // Replace with your Chat ID
+    // Telegram Only
+    const BOT_TOKEN = "8323809916:AAGqFUk7o1CN4XM7gylNUv6wstdZpV00MhM"; // your bot token
+    const CHAT_ID = "5233559861"; // your chat id
 
     document.getElementById("orderForm").addEventListener("submit", function(e) {
       e.preventDefault();
@@ -422,7 +367,6 @@
 🕒 Order Time: ${dateTime}
 `;
 
-      // Send to Telegram
       fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -430,22 +374,8 @@
       })
       .then(res => res.json())
       .then(() => {
-        // Send confirmation email
-        emailjs.send("service_jad1wqy", "template_47t9g7d", {
-          order_id: orderId,
-          service,
-          price,
-          username,
-          email,
-          phone,
-          order_time: dateTime
-        }).then(() => {
-          alert(`✅ Your order has been sent! A confirmation email has been sent to ${email}.`);
-          document.getElementById("orderForm").reset();
-        }).catch(err => {
-          alert("⚠️ Order sent but failed to send confirmation email.");
-          console.error(err);
-        });
+        alert("✅ Your order has been sent! We will contact you soon via Telegram or Email.");
+        document.getElementById("orderForm").reset();
       })
       .catch(err => {
         alert("❌ Failed to send order. Please try again.");
@@ -455,5 +385,3 @@
   </script>
 </body>
 </html>
-
-
