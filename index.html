@@ -341,23 +341,66 @@
     padding: 12px;
    }
  }
+    /* ✅ Hide hamburger on desktop */
+   .menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+  }
+
+/* ✅ Mobile navbar */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+    padding: 10px 0;
+    border-radius: 10px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
   </style>
 </head>
 <body>
   <!-- Navbar -->
-  <nav>
-    <div class="logo">
-      <img src="mylogo.png" alt="KingBoost Logo">
-      <strong>KingBoost</strong>
-    </div>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#order">Order</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div class="logo">
+    <img src="mylogo.png" alt="KingBoost Logo">
+    <strong>KingBoost</strong>
+  </div>
+
+  <!-- ✅ Hamburger Button -->
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <ul id="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#order">Order</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
 
   <!-- Hero Section -->
  <section class="hero" id="hero">
@@ -567,8 +610,18 @@
   document.getElementById("services").scrollIntoView({ behavior: "smooth" });
 }
   </script>
+  <script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuToggle.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
+  });
+</script>
 </body>
 </html>
+
 
 
 
